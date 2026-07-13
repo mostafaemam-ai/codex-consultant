@@ -1,0 +1,22 @@
+{
+  "$schema": "https://code.claude.com/docs/schema/marketplace.json",
+  "name": "codex-consultant",
+  "owner": {
+    "name": "Mostafa Emam"
+  },
+  "description": "A Claude Code plugin that drives the OpenAI Codex CLI as a read-only consultant.",
+  "plugins": [
+    {
+      "name": "codex",
+      "source": "./plugins/codex",
+      "description": "Drive the OpenAI Codex CLI as a read-only consultant from Claude Code — get a second opinion, delegate a task, or hold a multi-turn conversation, then relay the result.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mostafa Emam"
+      },
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["codex", "consultant", "code-review", "second-opinion", "openai", "advisor"]
+    }
+  ]
+}

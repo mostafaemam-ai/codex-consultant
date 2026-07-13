@@ -1,0 +1,12 @@
+{
+  "name": "codex",
+  "description": "Drive the OpenAI Codex CLI as a read-only consultant from Claude Code — get a second opinion, delegate a task, or hold a multi-turn conversation, then relay the result.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mostafa Emam"
+  },
+  "homepage": "https://github.com/mostafaemam-ai/codex-consultant",
+  "repository": "https://github.com/mostafaemam-ai/codex-consultant",
+  "license": "MIT",
+  "keywords": ["codex", "consultant", "code-review", "second-opinion", "openai", "advisor"]
+}
