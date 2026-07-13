@@ -42,8 +42,21 @@ codex exec --skip-git-repo-check "<prompt>" < /dev/null
 
 - `< /dev/null` prevents it blocking on "Reading additional input from stdin...".
 - `--skip-git-repo-check` avoids a repo-check prompt; safe everywhere.
-- Add `-m <model>` only if the user asks for a specific model.
 - Give the full output plenty of time — set the Bash `timeout` to 180000+ ms for non-trivial prompts.
+
+## Choosing the model (configurable)
+
+Do **not** hard-code or assume a specific model — Codex uses whatever the user has configured, so the skill tracks their setup automatically. There are two levers:
+
+1. **Per-user default (persistent):** the model comes from the user's `~/.codex/config.toml`, e.g.
+   ```toml
+   model = "gpt-5.5"
+   model_reasoning_effort = "high"
+   ```
+   If unset, Codex falls back to its own built-in default. This is *not* necessarily "the latest" model — it's whatever the user pinned. To use a newer model everywhere, the user edits this file.
+2. **Per-request override (one call):** pass `-m <model>` when the user asks for a specific model for a single question — e.g. `codex exec -m gpt-5.5 ...`. You can also override reasoning effort per call with `-c model_reasoning_effort="high"`.
+
+Only add `-m`/`-c model=...` when the user names a model; otherwise let their config default apply. If the user asks "which model is codex using?", check `~/.codex/config.toml` (or note that Codex is on its built-in default) rather than guessing.
 
 ## Consultant workflow
 

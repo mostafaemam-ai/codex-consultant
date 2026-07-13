@@ -25,6 +25,20 @@ You need the OpenAI Codex CLI installed and authenticated on the same machine as
 
 Claude resolves the `codex` binary from your `PATH`, so no path configuration is needed.
 
+## Choosing the model
+
+The plugin does **not** hard-code a model — Codex uses whatever *you* configure, so it adapts to each user's setup:
+
+- **Set your default** in `~/.codex/config.toml`:
+  ```toml
+  model = "gpt-5.5"
+  model_reasoning_effort = "high"
+  ```
+  This is the model every consultant call uses. Point it at a newer model whenever one ships.
+- **Override for one question** — just ask, e.g. *"ask codex with gpt-5.5 to review this."* Claude passes `-m gpt-5.5` for that call only.
+
+If no model is set, Codex falls back to its own built-in default (which is not guaranteed to be the newest release — pin it in the config if you want a specific one).
+
 ## Install
 
 In Claude Code, add this repo as a plugin marketplace and install the plugin:
